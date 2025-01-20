@@ -15,7 +15,7 @@ export const SocketContextProvider = ({children}) => {
     const {room,setRoom} = useRoomContext();
     useEffect(() => {
         if (authUser) {
-            const socket = io('http://localhost:8080', {
+            const socket = io('https://mafia-074i.onrender.com/', {
                 query: { userId: authUser._id },
             });
 
