@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+.msg{
+    border-radius: 5px;
+    clip-path: polygon(
+            0 0, 100% 0, 100% 80%,
+            60% 80%, 50% 100%, 40% 80%,
+            0 80%
+    );
+}
