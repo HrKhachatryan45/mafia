@@ -209,7 +209,7 @@ function Demo(props) {
 
     useEffect(() => {
         setToNight(false)
-    },[message,mafiaMessage])
+    },[message,mafiaMessage,changedMessage])
 
     return (
 
@@ -257,7 +257,7 @@ function Demo(props) {
                                     (r) => r.playerId._id === authUser._id && r.role === "Mafia"
                                 );
                                 return (
-                                    <div className={"w-fit flex flex-col relative items-center justify-center "}
+                                    <div style={{minWidth:"50px"}} className={"w-fit  flex flex-col relative items-center justify-center "}
                                          key={role.playerId._id}>
                                             {authUser.isAdmin && room.doctorAction.isDone && role.role === "Doctor" &&
                                                 <h2 className={'   text-white  indicator-item badge badge-success z-50'}>
