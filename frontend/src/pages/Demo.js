@@ -207,6 +207,10 @@ function Demo(props) {
          if ((room.gameStatus === "mafiaLost" || room.gameStatus === "mafiaWon") && room.gamePhase === "night" && toNight) {
              handleChangePhase()
          }
+
+         setTimeout(() => {
+            setToNight(false)
+         },3000)
     }, [room.gameStatus,socket,toNight]);
 
     return (
