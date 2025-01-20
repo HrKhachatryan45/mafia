@@ -63,9 +63,7 @@ function Demo(props) {
     const handleSendMessage = async (ev) => {
         ev.preventDefault();
 
-        if(room.gamePhase === "night"){
-            handleChangePhase()
-        }
+
         await sendMessage(authUser._id,message,"global");
         setMessage("")
     }
@@ -75,9 +73,7 @@ function Demo(props) {
     const handleSendMafiaMessage = async (ev) => {
 
         ev.preventDefault();
-        if(room.gamePhase === "night"){
-            handleChangePhase()
-        }
+
         await sendMessage(authUser._id,mafiaMessage,"mafia");
         setMafiaMessage("")
     }
@@ -193,7 +189,7 @@ function Demo(props) {
                 lastMessageRef.current?.scrollIntoView({behavior:'smooth',block:'end'})
             }
         },100)
-    }, [room?.conversations?.length,message,changedMessage]);
+    }, [room?.conversations?.length]);
 
     const {deleteRoom,loading:loadingDelete} = useDeleteRoom();
 
@@ -208,10 +204,12 @@ function Demo(props) {
              handleChangePhase()
          }
 
-         setTimeout(() => {
-            setToNight(false)
-         },3000)
+        
     }, [room.gameStatus,socket,toNight]);
+
+    useEffect(() => {
+        setToNight(false)
+    },[message,mafiaMessage])
 
     return (
 
