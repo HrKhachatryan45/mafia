@@ -257,7 +257,7 @@ function Demo(props) {
                                     (r) => r.playerId._id === authUser._id && r.role === "Mafia"
                                 );
                                 return (
-                                    <div className={"w-fit min-w-[50px]  flex flex-col relative items-center justify-center "}
+                                    <div className={"w-fit min-w-[60px]  flex flex-col relative items-center justify-center "}
                                          key={role.playerId._id}>
                                             {authUser.isAdmin && room.doctorAction.isDone && role.role === "Doctor" &&
                                                 <h2 className={'   text-white  indicator-item badge badge-success z-50'}>
