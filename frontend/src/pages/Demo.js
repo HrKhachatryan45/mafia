@@ -62,6 +62,10 @@ function Demo(props) {
     const [victimNameByVote,setVictimNameByVote] = useState("")
     const handleSendMessage = async (ev) => {
         ev.preventDefault();
+
+        if(room.gamePhase === "night"){
+            handleChangePhase()
+        }
         await sendMessage(authUser._id,message,"global");
         setMessage("")
     }
@@ -69,7 +73,11 @@ function Demo(props) {
 
     const [mafiaMessage,setMafiaMessage] = useState("")
     const handleSendMafiaMessage = async (ev) => {
+
         ev.preventDefault();
+        if(room.gamePhase === "night"){
+            handleChangePhase()
+        }
         await sendMessage(authUser._id,mafiaMessage,"mafia");
         setMafiaMessage("")
     }
