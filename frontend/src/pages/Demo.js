@@ -273,7 +273,7 @@ function Demo(props) {
                                                     </h2>
                                                 }
                                         {(authUser.isAdmin && ( role.role === "Admin" || !room.mafiaAction.isDone || !room.doctorAction.isDone || !room.sherifAction.isDone  || role.role === "Villager")) &&
-                                            <h2 className={' z-[-999] text-transparent border-none  text-white indicator-item badge  z-50 bg-transparent'}>
+                                            <h2 style={{color:"transparent"}} className={'  text-transparent border-none  text-white indicator-item badge  z-50 bg-transparent'}>
                                                 "hello"
                                             </h2>
                                         }
