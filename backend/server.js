@@ -13,6 +13,10 @@ const __name = path.resolve()
 
 app.use(express.static(path.join(__name, "frontend", "build")));
 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__name, "frontend", "build", "index.html"));
+});
+
 mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true

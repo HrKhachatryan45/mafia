@@ -15,7 +15,7 @@ export const SocketContextProvider = ({children}) => {
     const {room,setRoom} = useRoomContext();
     useEffect(() => {
         if (authUser) {
-            const socket = io('https://mafia-074i.onrender.com/', {
+            const socket = io('https://mafia-s9po.onrender.com', {
                 query: { userId: authUser._id },
             });
 
@@ -34,6 +34,7 @@ export const SocketContextProvider = ({children}) => {
     useEffect(() => {
         if (socket) {
             socket.on("userJoined", (updatedRoom) => {
+                console.log(updatedRoom,'updated room')
                 setRoom(updatedRoom);
                 localStorage.setItem('room',JSON.stringify(updatedRoom));
             });
